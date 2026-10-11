@@ -1,11 +1,12 @@
-import { createTodoHandler } from "./create-todo-handler";
 import vike from "@vikejs/hono";
 import { Hono } from "hono";
+import { api } from "./api";
 
 function getApp() {
   const app = new Hono();
+  app.route("/api", api);
 
-  vike(app, [createTodoHandler]);
+  vike(app, []);
 
   return app;
 }
